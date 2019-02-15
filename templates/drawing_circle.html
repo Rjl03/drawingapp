@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drawing app</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/master.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style='margin: 0'>
+    <div id="toolbar">
+        <div id ="rad">
+            Radius <span id ="radval">10</span>
+            <div id ="decrad" class="radcontrol">-</div>
+            <div id ="incrad" class="radcontrol">+</div>
+            <!--<button onclick="window.location.reload()" class="reloadcontrol"><i class="fa fa-refresh"></i></button>-->
+        </div>
+        <div id="colors">
+        </div>
+        <div id="save">
+            Save
+        </div>
+    </div>
+    <canvas id="canvas" style="display: block;">
+    Sorry your browser doesnt supports canvas.
+    </canvas>
+    <script type="text/javascript" src="{{url_for('static', filename='js/main.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/radius.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/colors.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/save.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='php/save.php') }}"></script>
+</body>
+</html>

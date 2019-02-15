@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canvas</title>
+    <style type="text/css">
+    canvas{
+        border:1px solid black;
+    }
+    </style>
+</head>
+<body>
+<canvas id="a" width="800" height="500"></canvas>
+<script type="text/javascript">
+    var size = prompt('enter your brush size');
+    var md = false;
+    var canvas = document.getElementById('a');
+    canvas.addEventListener('mousedown', down);
+    canvas.addEventListener('mouseup', toggledown);
+    canvas.addEventListener('mousemove', 
+    function(evt)
+    {
+        var mousePos = getMousePos(canvas, evt);
+        var posX = mousePos.x;
+        var posY = mousePos.y;
+        draw(canvas, posX, posY);
+    });
+    function down()
+    {
+        md = true;
+    }
+    function toggledown()
+    {
+        md = false;
+        canvas.style.cursor = "default";
+    }
+    function getMousePos(canvas, evt)
+    {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x:evt.clientX - rect.left,
+            y:evt.clientY - rect.top
+        }
+    }
+    function draw(canvac, posX, posY)
+    {
+        var context = canvac.getContext('2d');
+        if(md)
+        {
+            canvas.style.cursor = "pointer";
+            context.fillRect(posX, posY, size, size);
+        }
+    }
+</script>
+<button onclick="window.location.reload()">Reset</button>
+</body>
+</html>
