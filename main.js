@@ -6,6 +6,19 @@ var dragging = false;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+window.onresize = function()
+{
+    var image = context.getImageData(0,0,canvas.width,canvas.height);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    context.putImageData(image, 0, 0);
+}
+
+function clearCanvas(canvas)
+{
+    canvas.width = canvas.width;
+}
+
 context.lineWidth = 2*radius;
 
 var putPoint = function(e){
@@ -21,7 +34,7 @@ var putPoint = function(e){
     }
 };
 
-var engage = function(){
+var engage = function(e){
     dragging = true;
     putPoint(e);
 };
