@@ -27,6 +27,10 @@
     border: 1px solid black;
 } */
 
+#canvas
+{
+    background-color: black;
+}
 .radcontrol
 {
     width: 30px;
