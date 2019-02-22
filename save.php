@@ -19,7 +19,7 @@ else
 {
     header("HTTP/1.1 500 Internal Server Error");
 }
-cropImage(32,32,$path,'png','C:\xampp\htdocs\HelloWorld\request.png');
+cropImage(32,32,$path,'png','images/request.png');
 
 
 

@@ -2,15 +2,19 @@ import sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from keras import Sequential
+from keras.layers import Dense
+from sklearn.metrics import accuracy_score, confusion_matrix
+from PIL import Image
+from keras.models import load_model
 
-print(sys.argv[1:])
-data = np.load("data/raw/devanagari.npz")
-train_x, train_y, test_x, test_y = data['arr_0'], data['arr_1'], data['arr_2'], data['arr_3']
-train_y_series = pd.Series(train_y)
-test_y_series = pd.Series(test_y)
-train_ka = train_x[train_y_series[train_y_series == 1].index]
-test_ka = test_x[test_y_series[test_y_series == 1].index]
-train_kha = train_x[train_y_series[train_y_series == 2].index]
-test_kha = test_x[test_y_series[test_y_series == 2].index]
-plt.imshow(train_ka[0])
 
+
+filename = Image.open(r'C:\wamp64\www\drawingapp\images\request.png')
+X_val = np.asarray(filename, dtype=np.uint8)
+X_val = X_val.T
+X_val = X_val.reshape(3,1024)
+model = load_model('out/ProjectModel-15.h5')
+# model.load_weights('out/ProjectModel-15.h5')
+y_pred = model.predict_classes(X_val)
+print(y_pred)
