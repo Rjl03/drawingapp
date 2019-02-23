@@ -23,3 +23,4 @@ function saveImage()
     request.send('img='+data);
     // window.open(data, '_blank', 'location=0, menubar=0')
 }
+

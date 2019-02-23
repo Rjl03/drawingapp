@@ -20,6 +20,10 @@ else
     header("HTTP/1.1 500 Internal Server Error");
 }
 cropImage(32,32,$path,'png','images/request.png');
+// $command = escapeshellcmd('python /model_dump.py');
+$output = exec('python /helloworld_print.py');
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+fwrite($myfile, $output);
 
 
 
