@@ -1,5 +1,6 @@
 USE AMTRAK_DEVRAW 
 GO
+GO
 /*
 Those members which are null in the MRE tables, they are assigned as 'memberid' whereas in EI side, any null members are assigned as '~N'. So in order to avoid any null insert into factevents, this patch is executed. 
 */
